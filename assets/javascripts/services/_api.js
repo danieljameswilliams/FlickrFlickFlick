@@ -11,7 +11,8 @@ App.API = (function () {
     querystrings: {
       tags: 'hello,world', // Searches for 'hello,world' if undefined
       tagmode: 'all',
-      format: 'json'
+      format: 'json',
+      callback: '?'
     },
     search: null, // This is a shorthand for changing tags.
     url: _buildURL,

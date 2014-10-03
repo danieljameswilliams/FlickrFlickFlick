@@ -4,8 +4,10 @@ App.Views = App.Views || {};
 App.Views.ImageList = (function () {
 
   var Struct = Backbone.View.extend({
-    el: $('body'),
-    initialize: function () {}
+    el: $('.image__list'),
+    initialize: function () {
+      _.bindAll(this, 'render');
+    }
   });
 
   var newObject = new Struct();
