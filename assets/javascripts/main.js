@@ -1,5 +1,6 @@
 var App = App || {};
 
 $(document).ready(function() {
-  console.log( App.Views.ImageList.OBJECT );
+  // App.API.flickr.url({ search: '' });
+  // App.Views.ImageList.OBJECT
 });
