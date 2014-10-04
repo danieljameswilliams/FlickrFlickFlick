@@ -9,10 +9,10 @@ App.Models.Image = (function () {
         title: null,
         link: null,
         media: {
+          t: null,
           s: null,
           m: null,
-          l: null,
-          xl: null
+          b: null
         },
         date_taken: null,
         description: null,

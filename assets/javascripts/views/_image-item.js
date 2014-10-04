@@ -14,11 +14,9 @@ App.Views.ImageItem = (function () {
       this.collection.bind( 'add', this.appendImage );
     },
     render: function ( data ) {
-      console.log( 'rendering...' );
-      var itemData = $.parseJSON( data ); // APIObject should contain a image-feed-item
-      if(typeof itemData == 'object') {
+      if(typeof data == 'object') {
         var model = new App.Models.Image.MODEL();
-        model.set( itemData );
+        model.set( data );
         this.collection.add( model );
       }
     },

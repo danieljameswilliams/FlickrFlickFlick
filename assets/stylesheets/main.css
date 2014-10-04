@@ -1,0 +1,31 @@
+.image__list {
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.image__item {
+  width: 100%;
+  min-width: 200px;
+  overflow: hidden;
+  padding: 10px;
+  border-bottom: 1px solid #cecece;
+  box-sizing: border-box;
+}
+
+.image__item-picture {
+  float: left;
+  width: 20%;
+}
+
+.image__item-content {
+  float: left;
+  width: 80%;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.image__item img {
+  width: 100%;
+  display: block;
+}

@@ -1,8 +1,11 @@
 <div class="image__item">
   <div class="image__item-picture">
-    <img src="http://lorempixel.com/g/400/200/" alt="{{ model.title }}">
+    <img src="{{ model.media.m }}" alt="{{ model.title }}">
   </div>
   <div class="image__item-content">
     <strong>{{ model.title }}</strong>
+    <p>Published: <time datetime="{{ model.published }}">{{ formatDate model.published }}</time>.</p>
+    <a href="https://www.flickr.com/photos/{{ model.author_id }}">Photo author</a>
+    <a href="{{ model.link }}">View on flickr</a>
   </div>
 </div>

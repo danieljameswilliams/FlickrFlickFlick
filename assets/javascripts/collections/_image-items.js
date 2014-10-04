@@ -6,7 +6,7 @@ App.Collections.Image = (function () {
   var Collection = Backbone.Collection.extend({
     model: App.Models.Image.MODEL,
     url: function () {
-      return App.API.flickr.url({ search: 'hello,world' });
+      return App.API.flickr.url({ search: '' });
     },
     initialize: function () {
       this.sync();
@@ -29,7 +29,6 @@ App.Collections.Image = (function () {
     },
     reset: function ( models ) {
       for(var i = 0; i < models.length; i++) {
-        console.log( 'Resetting ' + i );
         App.Views.ImageItem.OBJECT.render( models[i] );
       }
     }
