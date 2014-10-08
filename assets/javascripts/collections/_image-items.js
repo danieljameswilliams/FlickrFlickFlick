@@ -2,9 +2,12 @@ var App = App || {};
 App.Collections = App.Collections || {};
 
 App.Collections.Image = (function () {
-
+  var dom = {
+    $imageList: $('.image__list')
+  };
   var Collection = Backbone.Collection.extend({
     model: App.Models.Image.MODEL,
+    el: dom.$imageList,
     url: function () {
       return App.API.flickr.url({ search: '' });
     },
@@ -15,7 +18,7 @@ App.Collections.Image = (function () {
       var collection = this,
           params = _.extend({
             type: 'GET',
-            dataType: 'jsonp', // What does jsonp do exactly?
+            dataType: 'jsonp', // QUESTION - What does jsonp do exactly?
             url: collection.url(),
             processData: false
           });

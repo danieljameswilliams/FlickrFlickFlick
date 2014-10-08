@@ -10,7 +10,6 @@ App.Views.ImageItem = (function () {
     initialize: function () {
       _.bindAll(this, 'render', 'appendImage');
       this.collection = new App.Collections.Image.COLLECTION();
-      var imageList = App.Views.ImageList.OBJECT;
       this.collection.bind( 'add', this.appendImage );
     },
     render: function ( data ) {
@@ -18,11 +17,12 @@ App.Views.ImageItem = (function () {
         var model = new App.Models.Image.MODEL();
         model.set( data );
         this.collection.add( model );
+        return this;
       }
     },
     appendImage: function ( model ) {
       var html = this.template( { model: model.toJSON() } );
-      App.Views.ImageList.OBJECT.$el.append( html );
+      this.collection.el.append( html );
     }
 
   });
