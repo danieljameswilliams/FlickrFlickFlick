@@ -7,5 +7,12 @@
     <p>Published: <time datetime="{{ model.published }}">{{ formatDate model.published }}</time>.</p>
     <a href="https://www.flickr.com/photos/{{ model.author_id }}">Photo author</a>
     <a href="{{ model.link }}">View on flickr</a>
+    <ul class="tags__list">
+      {{#tags model.tags}}
+        <li class="tags__list-item">
+          <a href="https://www.flickr.com/search/?q={{ value }}">{{ value }}</a>
+        </li>
+      {{/tags}}
+    </ul>
   </div>
 </div>
