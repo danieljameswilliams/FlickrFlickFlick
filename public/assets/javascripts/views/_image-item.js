@@ -9,7 +9,7 @@ App.Views.ImageItem = (function () {
 
     initialize: function () {
       _.bindAll(this, 'render', 'appendImage');
-      this.collection = new App.Collections.Image.COLLECTION();
+      this.collection = App.Collections.Images.OBJECT;
       this.collection.bind( 'add', this.appendImage );
     },
     render: function ( data ) {

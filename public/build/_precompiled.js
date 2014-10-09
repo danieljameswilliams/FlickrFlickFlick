@@ -12,9 +12,13 @@ templates['image-item'] = template({"1":function(depth0,helpers,partials,data) {
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.media : stack1)) != null ? stack1.m : stack1), depth0))
     + "\" alt=\""
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.title : stack1), depth0))
-    + "\">\n  </div>\n  <div class=\"image__item-content\">\n    <strong>"
+    + "\">\n  </div>\n  <div class=\"image__item-content\">\n    <strong>\n      q"
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.cid : stack1), depth0))
+    + "w\n      e"
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.id : stack1), depth0))
+    + "a\n      s"
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.title : stack1), depth0))
-    + "</strong>\n    <p>Published: <time datetime=\""
+    + "d\n    </strong>\n    <p>Published: <time datetime=\""
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.published : stack1), depth0))
     + "\">"
     + escapeExpression(((helpers.formatDate || (depth0 && depth0.formatDate) || helperMissing).call(depth0, ((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.published : stack1), {"name":"formatDate","hash":{},"data":data})))

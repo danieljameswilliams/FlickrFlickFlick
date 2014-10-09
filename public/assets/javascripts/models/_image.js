@@ -4,6 +4,7 @@ App.Models = App.Models || {};
 App.Models.Image = (function () {
 
   var Model = Backbone.Model.extend({
+    //idAttribute: '_id',
     defaults: function() {
       return {
         title: null,

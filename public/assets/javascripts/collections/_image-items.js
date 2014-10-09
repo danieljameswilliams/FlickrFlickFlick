@@ -1,18 +1,15 @@
 var App = App || {};
 App.Collections = App.Collections || {};
 
-App.Collections.Image = (function () {
+App.Collections.Images = (function () {
   var dom = {
     $imageList: $('.image__list')
   };
-  var Collection = Backbone.Collection.extend({
+  var Struct = Backbone.Collection.extend({
     model: App.Models.Image.MODEL,
     el: dom.$imageList,
     url: function () {
       return App.API.flickr.url({ search: '' });
-    },
-    initialize: function () {
-      this.sync();
     },
     sync: function () {
       var collection = this,
@@ -38,8 +35,11 @@ App.Collections.Image = (function () {
 
   });
 
+  var newObject = new Struct();
+
   return {
-    COLLECTION: Collection
+    STRUCT: Struct,
+    OBJECT: newObject
   };
 
 })();
