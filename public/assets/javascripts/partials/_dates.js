@@ -37,12 +37,18 @@ App.Helpers.Dates = (function () {
     return format;
   }
 
-  // QUESTION - How can I make this more readable?
   function _addOrdinalToDate ( dateNumber ) {
-    var ords = [,'st','nd','rd'],
-        m = (dateNumber % 100);
+    var ords = [ 'th', 'st','nd','rd' ],
+        result;
 
-    return ((m > 10 && m < 14)? 'th' : ords[m%10] || 'th');
+    if( dateNumber > 10 && dateNumber < 14 ) {
+      result = ords[0];
+    }
+    else {
+      result = ords[ dateNumber % 10 ] || ords[0];
+    }
+
+    return result;
   }
 
   return {
