@@ -6,7 +6,7 @@ App.Router.Image = (function () {
   var Struct = Backbone.Router.extend({
     routes: {
       '' : 'newestImages',
-      '#!/photos/:username/:photoid': 'viewImage'
+      'photos/:username/:photoid': 'viewImage'
     },
     initialize: function () {
       _.bindAll(this, 'newestImages', 'viewImage');
@@ -14,8 +14,10 @@ App.Router.Image = (function () {
     newestImages: function () {
       App.Collections.Images.OBJECT.sync();
     },
-    viewImage: function ( username, photoid ) {
-      console.log( username, photoid );
+    viewImage: function ( model ) {
+      // TODO: Get the Clicked Model in the Router view, to send with your renderer - so you can save an request.
+      // Alternativley you can save it in localStorage ..
+      App.Views.ImageDetail.OBJECT.render();
     }
   });
   var newObject = new Struct();

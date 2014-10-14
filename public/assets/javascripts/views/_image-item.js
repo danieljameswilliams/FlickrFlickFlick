@@ -6,12 +6,12 @@ App.Views.ImageItem = (function () {
   var Struct = Backbone.View.extend({
     el: '.image__list',
     template: Handlebars.templates['image-item'],
+    collection: App.Collections.Images.OBJECT,
     events: {
       'click .js-image__item-link': 'onDetailClicked'
     },
     initialize: function () {
       _.bindAll(this, 'render', 'appendImage', 'onDetailClicked');
-      this.collection = App.Collections.Images.OBJECT;
       this.collection.bind( 'add', this.appendImage );
     },
     render: function ( data ) {
@@ -23,14 +23,21 @@ App.Views.ImageItem = (function () {
       }
     },
     appendImage: function ( model ) {
-      var html = this.template( { model: model.toJSON() } );
+      var modelWithId = _.extend( {}, model.toJSON(), { cid: model.cid } );
+      var html = this.template( { model: modelWithId } );
       this.collection.el.append( html );
     },
     onDetailClicked: function ( event ) {
       event.preventDefault();
 
+      var modelId = $( event.currentTarget ).parents('.image__item').data('id');
+      var model = this.collection.get( modelId );
+
+      _.extend( App.Router.Image.OBJECT, Backbone.Events );
+      App.Router.Image.OBJECT.trigger( 'viewImage', model );
+
       var href = $( event.target ).attr('href');
-      App.Router.Image.OBJECT.navigate( href, { trigger : true } );
+      App.Router.Image.OBJECT.navigate( href, { trigger : false } );
 
       return false;
     }
