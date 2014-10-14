@@ -12,7 +12,7 @@ App.API = (function () {
       tags: 'hello,world', // Searches for 'hello,world' if undefined
       tagmode: 'all',
       format: 'json',
-      callback: '?'
+      jsoncallback: 'flickrFeedCallback'
     },
     search: null, // This is a shorthand for changing tags.
     url: _buildURL,
