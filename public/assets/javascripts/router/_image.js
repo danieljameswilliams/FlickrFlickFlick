@@ -6,26 +6,19 @@ App.Router.Image = (function () {
   var Struct = Backbone.Router.extend({
     routes: {
       '' : 'newestImages',
-      'view/:id': 'viewImage'
+      '#!/photos/:username/:photoid': 'viewImage'
     },
     initialize: function () {
-      console.log( 'Initialize Routers' );
+      _.bindAll(this, 'newestImages', 'viewImage');
     },
     newestImages: function () {
-      console.log( 'Frontpage loaded' );
       App.Collections.Images.OBJECT.sync();
     },
-    viewImage: function ( id ) {
-
+    viewImage: function ( username, photoid ) {
+      console.log( username, photoid );
     }
   });
-
   var newObject = new Struct();
-
-  Backbone.history.start({
-    pushState: true,
-    root: '/'
-  });
 
   return {
     STRUCT: Struct,

@@ -1,5 +1,8 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['image-detail'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  return "DETAIL\n";
+  },"useData":true});
 templates['image-item'] = template({"1":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "        <li class=\"tags__list-item\">\n          <a href=\"https://www.flickr.com/search/?q="
@@ -12,13 +15,11 @@ templates['image-item'] = template({"1":function(depth0,helpers,partials,data) {
     + escapeExpression(lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.media : stack1)) != null ? stack1.m : stack1), depth0))
     + "\" alt=\""
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.title : stack1), depth0))
-    + "\">\n  </div>\n  <div class=\"image__item-content\">\n    <strong>\n      q"
-    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.cid : stack1), depth0))
-    + "w\n      e"
-    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.id : stack1), depth0))
-    + "a\n      s"
+    + "\">\n  </div>\n  <div class=\"image__item-content\">\n    <strong>\n      <a class=\"image__item-link js-image__item-link\" href=\""
+    + escapeExpression(((helpers.getURL || (depth0 && depth0.getURL) || helperMissing).call(depth0, ((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.link : stack1), {"name":"getURL","hash":{},"data":data})))
+    + "\">"
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.title : stack1), depth0))
-    + "d\n    </strong>\n    <p>Published: <time datetime=\""
+    + "</a>\n    </strong>\n    <p>Published: <time datetime=\""
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.published : stack1), depth0))
     + "\">"
     + escapeExpression(((helpers.formatDate || (depth0 && depth0.formatDate) || helperMissing).call(depth0, ((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.published : stack1), {"name":"formatDate","hash":{},"data":data})))
@@ -31,4 +32,7 @@ templates['image-item'] = template({"1":function(depth0,helpers,partials,data) {
   if (stack1 != null) { buffer += stack1; }
   return buffer + "    </ul>\n  </div>\n</div>\n";
 },"useData":true});
+templates['image-list'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  return "<h1>Newest uploads on Flickr:</h1>\n<div class=\"image__list\"></div>\n";
+  },"useData":true});
 })();

@@ -3,7 +3,9 @@
     <img src="{{ model.media.m }}" alt="{{ model.title }}">
   </div>
   <div class="image__item-content">
-    <strong>{{ model.title }}</strong>
+    <strong>
+      <a class="image__item-link js-image__item-link" href="{{ getURL model.link }}">{{ model.title }}</a>
+    </strong>
     <p>Published: <time datetime="{{ model.published }}">{{ formatDate model.published }}</time>.</p>
     <a href="https://www.flickr.com/photos/{{ model.author_id }}">Photo author</a>
     <a href="{{ model.link }}">View on flickr</a>
