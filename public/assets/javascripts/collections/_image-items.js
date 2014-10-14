@@ -15,13 +15,12 @@ App.Collections.Images = (function () {
       var collection = this,
           params = _.extend({
             type: 'GET',
-            dataType: 'jsonp', // QUESTION - What does jsonp do exactly?
+            dataType: 'jsonp',
             url: collection.url(),
             processData: false
           });
 
-      // QUESTION - How can this be the callback of the below lines?
-      window.jsonFlickrFeed = function( res ) {
+      window.flickrFeedCallback = function( res ) {
         collection.reset( res.items );
       };
 
