@@ -33,11 +33,10 @@ App.Views.ImageItem = (function () {
       var modelId = $( event.currentTarget ).parents('.image__item').data('id');
       var model = this.collection.get( modelId );
 
-      _.extend( App.Router.Image.OBJECT, Backbone.Events );
-      App.Router.Image.OBJECT.trigger( 'viewImage', model );
+      window.localStorage.setItem( 'viewDetail', JSON.stringify( model ) );
 
       var href = $( event.target ).attr('href');
-      App.Router.Image.OBJECT.navigate( href, { trigger : false } );
+      App.Router.Image.OBJECT.navigate( href, { trigger : true } );
 
       return false;
     }

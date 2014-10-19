@@ -1,8 +1,12 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['image-detail'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "DETAIL\n";
-  },"useData":true});
+  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.id : stack1), depth0))
+    + " <br>\n"
+    + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.model : depth0)) != null ? stack1.title : stack1), depth0))
+    + "\n";
+},"useData":true});
 templates['image-item'] = template({"1":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "        <li class=\"tags__list-item\">\n          <a href=\"https://www.flickr.com/search/?q="

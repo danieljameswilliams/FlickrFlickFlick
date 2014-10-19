@@ -14,10 +14,9 @@ App.Router.Image = (function () {
     newestImages: function () {
       App.Collections.Images.OBJECT.sync();
     },
-    viewImage: function ( model ) {
-      // TODO: Get the Clicked Model in the Router view, to send with your renderer - so you can save an request.
-      // Alternativley you can save it in localStorage ..
-      App.Views.ImageDetail.OBJECT.render();
+    viewImage: function () {
+      var model = window.localStorage.getItem( 'viewDetail' );
+      App.Views.ImageDetail.OBJECT.render( model );
     }
   });
   var newObject = new Struct();

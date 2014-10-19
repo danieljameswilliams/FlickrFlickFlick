@@ -5,17 +5,17 @@ App.Views.ImageDetail = (function () {
 
   var Struct = Backbone.View.extend({
     el: '.image__detail',
-    template: Handlebars.templates['image-item'],
+    template: Handlebars.templates['image-detail'],
     collection: App.Collections.Images.OBJECT,
     initialize: function () {
       _.bindAll(this, 'render');
     },
     render: function ( data ) {
+      var data = JSON.parse( data );
       if(typeof data == 'object') {
-        console.log( 'Rendering with Object' );
-      }
-      else {
-        console.log( 'Rendering without Object' );
+
+        var html = this.template( { model: data } );
+        this.collection.el.html( html );
       }
     }
   });
